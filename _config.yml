@@ -15,20 +15,20 @@ sass:
 
 permalink: /posts/:title/
 texture:
-  title: live2skul
+  title: live2skull
   tagline: Developer. Student
   date_format: "%b %-d, %Y"
   style: black
   showNav: false
-  showPicker: true
+  showPicker: false
   analytics_id: UA-114835371-2
 
   # generate social links in footer
-  social_links:
-    twitter: thelehhman
-    github:  thelehhman
-    linkedIn: in/thelehhman
-    rss: rss
+  # social_links:
+  #   twitter: thelehhman
+  #   github:  thelehhman
+  #   linkedIn: in/thelehhman
+  #   rss: rss
 
 
 # If you want to link only specific pages in your header, uncomment
