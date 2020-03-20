@@ -5,9 +5,9 @@ date:   2019-09-01 00:59:09 +0000
 categories: django djangorestframework
 ---
 
-{% include important.html content="본 문서는 작성자의 상황에 맞게 적용된 규칙입니다." %}
+django, djangorestframework 프레임워크를 적용한 파이썬 웹 API 작성에 적용되는 규칙을 정의한다.
 
-django, djangorestframework 프레임워크를 적용한 파이썬 웹 API 작성에 적용되는 규칙.
+{% include important.html content="본 문서는 작성자의 상황에 맞게 적용된 규칙입니다." %}
 
 
 ## 모듈 개요
