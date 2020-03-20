@@ -34,12 +34,11 @@ ALLOWED_HOSTS = []
 if not DEBUG:
     import sentry_sdk
     from sentry_sdk.integrations.django import DjangoIntegration
-    from sentry_sdk.integrations.celery import CeleryIntegration
 
     # sentry error handling
     sentry_sdk.init(
         dsn=getenv('SENTRY_SDK_DSN', str),
-        integrations=[DjangoIntegration(), CeleryIntegration()],
+        integrations=[DjangoIntegration()],
         send_default_pii=True
     )
 
