@@ -13,10 +13,13 @@ django, djangorestframework을 사용한 앱 패키지의 작성 규칙 및 요�
 
 환경변수 설정 및 변수에 따른 디버깅, 로깅(`sentry_sdk`) 적용 파일.
 
-📝 project_name\/settings.py
+📝 project_name/settings.py
 
 **django, djangorestframework 적용**
+<details markdown="1">
+<summary>접기/펼치기</summary>
 {% include gist.html gist="live2skull/12e8b9ae6b4dff21c7de5a25c33193aa" %}
+</details>
 
 
 **django, djangorestframework, celery 적용**
