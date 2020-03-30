@@ -30,4 +30,18 @@ pypi 서버 설치가 완료되었으면, 패키지 배포 및 설치를 위해 
 
 📝 .pypirc
 ```
+[distutils]
+index-servers=
+	api
+	pypi
+
+[api]
+repository:https://custom.pypi.com
+username:username
+password:password
+
+[pypi]
+# pypi.org에 등록된 본인의 계정이 있을 경우 추가합니다.
+username:undefined
+password:undefined
 ```
