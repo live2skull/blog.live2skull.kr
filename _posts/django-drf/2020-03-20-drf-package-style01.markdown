@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "django drf 앱 패키징 가이드"
-date:   2019-09-01 00:59:09 +0000
+title:  "django drf 앱 패키징 가이드 - 01"
+date:   2020-03-23 00:59:09 +0000
 categories: django drf python package guide
 ---
 

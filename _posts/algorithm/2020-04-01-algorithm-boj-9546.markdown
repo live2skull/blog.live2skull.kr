@@ -1,0 +1,26 @@
+---
+layout: post
+title:  "백준 알고리즘 풀이 - 9546번(3000번 버스)"
+date:   2019-09-01 00:59:09 +0000
+categories: python pip algorithm
+---
+
+[문제](https://www.acmicpc.net/problem/9546) |
+**[✏️정답 확인](https://github.com/live2skull/TheLordOfBOJ/blob/master/problems/%EC%88%98%ED%95%99/9546.py)**
+
+정류장의 수 별로 승객의 수를 살펴보면, 다음과 같다.
+
+1번째 정류장에서 1명  (1명 증가)  
+2번째 정류장에서 3명  (2명 증가)  
+3번째 정류장에서 7명  (4명 증가)  
+4번째 정류장에서 15명  (8명 증가)  
+
+n번째 정류장에서 2를 등비로 하는 등비수열의 n-1번째 항까지의 합을 가지고 있으므로, 등비수열의 합을 구현하여 풀이한다.
+
+```
+def calc(step):
+    # 0 -> 1 -> 3 -> 7 -> 15 ...
+    _sum = 1 # 시작 값
+    dp = 2 * (pow(2, step-1) - 1) # 내부 등비수열의 합
+    return _sum + dp
+```
