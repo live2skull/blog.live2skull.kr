@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  파이썬 private pip 서버 구축
+title:  "django drf 앱 패키징 가이드 - 00"
 date:   2020-03-23 02:00:00 +0000
-categories: python package pip private
+categories: django drf python package guide
 ---
 
 django, djangorestframework을 사용한 앱 패키지의 작성 규칙 및 요령해 대해 기술합니다.
