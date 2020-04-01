@@ -1,14 +1,16 @@
 ---
 layout: post
-title:  "알고리즘 문제 유형별 풀이"
-date:   2019-09-01 00:59:09 +0000
+title:  "유형별 알고리즘 문제풀이"
+date:   2020-04-01 00:00:00 +0000
 categories: python pip algorithm
 ---
 
-## 알고리즘 문제 풀이
+## 유형별 알고리즘 문제풀이
 [백준 Online Judge](https://www.acmicpc.net/)
 
 [백준 - 분류별 태그](https://www.acmicpc.net/problem/tags)
+
+[TheLordOfBOJ - 백준 문제풀이 코드 모음](https://github.com/live2skull/TheLordOfBOJ)
 
 ----
 
@@ -22,7 +24,7 @@ categories: python pip algorithm
 
 단순히 특정 글 또는 로고 출력만이 필요할 경우 (문제에 입력이 없고, 정답이 항상 동일한 경우) 코드 제출 단계에서 언어를 `Text`로 지정하면 소스 코드가 아닌 답 자체를 제출할 수 있다.
 
-다량의 입/출력 과정에서 발생할 수 있는 시간 초과에는 다음과 같이 대응한다.
+다량의 데이터 입/출력 과정에서 발생할 수 있는 시간 초과에는 다음과 같이 대응한다.
 
 **🧭 파이썬 예제**  
 [python3 - input()과 sys.stdin.readline 성능 비교](https://stackoverflow.com/questions/22623528/sys-stdin-readline-and-input-which-one-is-faster-when-reading-lines-of-inpu)
@@ -32,8 +34,21 @@ sys.stdin.readline().strip() # readline()은 줄 개행 문제를 포함합니�
 
 **🧭 자바 예제**
 ```
-// java.io.Scanner => ... 작성 중
+import java.io.*;
+// throws java.io.IOException
 
+// Read
+BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+String s = bf.readLine();
+bf.close();
+
+StringTokenizer st = new StringTokenizer(s); // 공백 단위의 데이터 가공
+int a = Integer.parseInt(st.nextToken()); // BufferedReader - nextInt() 지원하지 않음
+
+// Write
+BufferedWriter bw = new BufferedWriter(new InputStreamWriter(System.out));
+bw.write("MyString" + "\n");
+bw.flush(); bw.write();
 ```
 
 
@@ -43,25 +58,31 @@ sys.stdin.readline().strip() # readline()은 줄 개행 문제를 포함합니�
 
 #### [수학](https://www.acmicpc.net/problem/tag/%EC%B6%9C%EB%A0%A5)
 
+상황이 주어지되, `시뮬레이션` 유형과 달리 방정식, 수열의 성질을 이용해 수식을 작성하여 풀 수 있다.  
+`시뮬레이션` 유형으로 풀이하였으나 시간 초과 / 메모리 초과로 풀이가 제한될 경우 수식을 이용한 풀이를 시도해 본다.
+
 |-|설명|
 |---|-----|
 |방정식|N일때의 값 K, K가 되는 N 구하기.|
 |수열|등차수열, 등비수열, 계차수열 - N에서 값,합|
 |순열과 조합|조합 가능한 경우의 수. 순열 / 조합으로 별도 분류|
 
+----
+
 #### [시뮬레이션](https://www.acmicpc.net/problem/tag/%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98)
 
-다양한 상황이 주어지면 순차적으로 실행하면서 특정 상황이 되는 경우를 찾는다.  
+상황이 주어지면 순차적으로 실행하면서 특정 상황이 되는 경우를 찾는다.  
 `수학` 유형과 달리 n번쨰 상황에서의 결과값을 수식으로 정의하지 못하는 경우 카운터 변수를 두고 상황을 단계별로 시뮬레이션한다.
 
+----
 
 #### [정렬](https://www.acmicpc.net/problem/tag/%EC%A0%95%EB%A0%AC)
 
 
 
-\#1. 정렬 알고리즘을 구현하거나, 상황에 맞게 변형하여 사용한다.
+\- 정렬 알고리즘을 구현하거나, 상황에 맞게 변형하여 사용한다.
 
-\#2. 정수, 문자열의 정렬(아스키 코드 기준)을 다룬다.  
+\- 정수, 문자열의 정렬(아스키 코드 기준)을 다룬다.  
 특정 데이터셋이 주어지고, 정렬 순위에 우선순위를 부여하여 여러개의 정렬 조건을 제시할 수 있다.
 
 **🧭 파이썬 예제**
@@ -85,10 +106,14 @@ dset.sort(key=lambda x: (x[0], x[2], -x[1]))
 작성중입니다. 😅
 ```
 
-#### [다이나믹 프로그래밍](https://www.acmicpc.net/problem/tag/%EB%8B%A4%EC%9D%B4%EB%82%98%EB%AF%B9%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D)
+----
+
+#### [동적 프로그래밍](https://www.acmicpc.net/problem/tag/%EB%8B%A4%EC%9D%B4%EB%82%98%EB%AF%B9%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D)
+
+**\- 메모이제이션(Top-down)**  
 
 
-
+**\- 상향식 계산법(Bottom-up)**  
 
 ----
 
