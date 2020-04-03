@@ -53,4 +53,17 @@ def fibcnt(n):
 
 **Button-up 풀이법**
 ```
+def fib(target):
+
+    n = 2
+    while n <= target:
+        q10, q11 = mem[n-1]; q20, q21 = mem[n-2]
+        q = q10 + q20, q11 + q21
+        mem[n] = q
+        n += 1
+
+    return mem[target]
 ```
+
+💡일반적으로 상향식(Button-up) 풀이법이 Top-down 풀이법보다 성능이 더 좋다.  
+또한 Top-down 풀이법을 재귀함수로 구현할 경우 N이 매우 크거나, 시스템 환경에 따라 메모리 오류(maximum recursion exceed)가 발생할 수 있다.
