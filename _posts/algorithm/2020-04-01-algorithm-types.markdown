@@ -134,21 +134,33 @@ dset.sort(key=lambda x: (x[0], x[2], -x[1]))
 
 #### [동적 프로그래밍](https://www.acmicpc.net/problem/tag/%EB%8B%A4%EC%9D%B4%EB%82%98%EB%AF%B9%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D)
 
+
+
 **\- 메모이제이션(Top-down)**  
 특정 문제를 가장 큰 단위의 문제부터 시작하여 가장 작은 단계로 내려간 후 풀이한다. 큰 단위의 계산이 작은 단위의 데이터를 필요로 하며, 이를 위해 한번 계산한 결과를 저장하고, 동일한 연산을 수행할 때 불러와 사용하는 기법을 `메모이제이션` 이라고 한다.
 
 주로 재귀 함수 형태로 구현하며, N값이 함수의 재귀가 반복되며 감소되고, 작업이 여러 갈래로 분할된다.  
 재귀 함수의 특성항 상향식 계산법보다 대개 성능이 떨어지지만, 문제 유형에 따라 메모이제이션으로 구현해야 하는 경우도 있다. (...)
 
-예제) [피보나치 수열](https://www.acmicpc.net/problem/1003)
 
 **\- 상향식 계산법(Bottom-up)**  
 특정 상황 N의 결과를 도출하기 위해 가장 작은 단위부터 상황 N까지 올라가며, 작은 단위의 계산값을 저장, 큰 단위로 올라가며 작은 단위의 데이터를 필요로 한다.
 
-\#1. func(N) 값이 func(N +-*/ const) 특정 값과 연관되있으며, 여러번 실행된다(메모이제이션 사용 이유).  
-이때 func(N)=V에서 N: 계산인자/특정상황(시간, 구간, 크기), V: 계산된 값.
 
-예제) [막대기](https://www.acmicpc.net/problem/1094)
+**\- dp[] 에 저장하는 데이터 구조**  
+**1. dp[viewpoint / count / n / selection] = value / cost**  
+N의 값이 N-X값을 참조하나, N-X에 의해 제한되지 않는다.
+
+
+**2. dp[viewpoint / n][selection / option] = value / cost**  
+N의 값이 N-X값을 참조한다.  
+N의 선택 가능한 조합이 N-X에 의해 제한되는 경우, 이전 선택지를 같이 저장하여아 한다.
+
+
+예제)
+- 조합 가능한 수: [2xn 타일링](https://www.acmicpc.net/problem/11726)
+- 최대, 최소비용 계산: [피보나치 수열](https://www.acmicpc.net/problem/1003), [막대기](https://www.acmicpc.net/problem/1094)
+
 
 ----
 
