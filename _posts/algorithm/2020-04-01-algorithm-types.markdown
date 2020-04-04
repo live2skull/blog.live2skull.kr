@@ -8,7 +8,10 @@ categories: python pip algorithm
 ## 유형별 알고리즘 문제풀이
 [백준 Online Judge](https://www.acmicpc.net/)
 
+[백준 - 단계별 태그](https://www.acmicpc.net/step)
+
 [백준 - 분류별 태그](https://www.acmicpc.net/problem/tags)
+
 
 [TheLordOfBOJ - 백준 문제풀이 코드 모음](https://github.com/live2skull/TheLordOfBOJ)
 
@@ -134,7 +137,13 @@ dset.sort(key=lambda x: (x[0], x[2], -x[1]))
 
 #### [동적 프로그래밍](https://www.acmicpc.net/problem/tag/%EB%8B%A4%EC%9D%B4%EB%82%98%EB%AF%B9%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D)
 
-
+|레벨|예|
+|---|-----|
+|1|D[N] = D[N+X] + ...|
+|2|1번과 동일하나, 재귀함수로 구현하였을 경우 Bottom-up으로 재구현하여야함|
+|3|상황에 따라 값을 최대, 최소 등 선택. 경우에 따라 선택값 하나만 저장하는 상황을 여러값 저장으로 혼동의 여지가 있음|
+|4|D[N]의 값이 연관되어있으며, 이전 선택지에 따라 현재 선택지가 제한을 받음|
+|5|다양한 제약조건 추가|
 
 **\- 메모이제이션(Top-down)**  
 특정 문제를 가장 큰 단위의 문제부터 시작하여 가장 작은 단계로 내려간 후 풀이한다. 큰 단위의 계산이 작은 단위의 데이터를 필요로 하며, 이를 위해 한번 계산한 결과를 저장하고, 동일한 연산을 수행할 때 불러와 사용하는 기법을 `메모이제이션` 이라고 한다.

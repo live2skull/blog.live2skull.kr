@@ -35,6 +35,7 @@ zappa init
 
 
 
+
 ## AWS Lambda로 프로젝트 업로드
 
 프로젝트 파일을 aws lambda와 aws api gateway 환경에 업로드합니다.
