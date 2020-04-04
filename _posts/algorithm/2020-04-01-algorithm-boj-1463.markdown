@@ -1,0 +1,69 @@
+---
+layout: post
+title:  "백준 알고리즘 풀이 - 1003번(피보나치 수열)"
+date:   2020-04-01 00:59:09 +0000
+categories: python pip algorithm dynamicprogramming
+---
+
+[문제](https://www.acmicpc.net/problem/1003) |
+**[✏️정답 확인](https://github.com/live2skull/TheLordOfBOJ/blob/master/problems/%EB%8B%A4%EC%9D%B4%EB%82%98%EB%AF%B9_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/1003.py)**
+
+
+다음의 코드로 피보나치 수열을 구할 때, fibonacci(N) 일 때 0과 1이 출력되는 경우는 각각 몇번인가?
+
+```
+int fibonacci(int n) {
+    if (n == 0) {
+        printf("0");
+        return 0;
+    } else if (n == 1) {
+        printf("1");
+        return 1;
+    } else {
+        return fibonacci(n‐1) + fibonacci(n‐2);
+    }
+}
+```
+
+피보나치 수열을 구하는 일반적인 재귀 함수 코드이며, 메모이제이션 기법이 적용되어 있지 않으므로, 각각의 fibonacci(n)는 함수의 재귀 호출 수 만큼 실행하게 된다.
+
+이때, 피보나치 수열의 규칙에 따라 N=0 부터 0과 1의 출력은 다음과 같다.
+
+|N|0 출력|1 출력
+|---|-----|-----|
+|0|1|0|
+|1|0|1|
+|2|fib(0) + fib(1)|fib(0) + fib(1)|
+|3|fib(1) + fib(2)|fib(1) + fib(2)|
+
+따라서, N=2부터는 N보다 작은 값의 결과가 누적되어 출력횟수를 구할 수 있으므로, 앞 결과를 저장하는 메모이제이션 기법을 활용해 Top-down의 재귀식 풀이법 또는 Bottom-up 상향식 풀이법으로 문제를 해결할 수 있다.
+
+**Top-down 풀이법**
+```
+def fibcnt(n):
+        d = mem[n]
+        if d is not None: return d
+
+        q10, q11 = fibcnt(n-1); q20, q21 = fibcnt(n-2)
+        q = q10 + q20, q11 + q21
+
+        mem[n] = q
+        return q
+```
+
+**Button-up 풀이법**
+```
+def fib(target):
+
+    n = 2
+    while n <= target:
+        q10, q11 = mem[n-1]; q20, q21 = mem[n-2]
+        q = q10 + q20, q11 + q21
+        mem[n] = q
+        n += 1
+
+    return mem[target]
+```
+
+💡일반적으로 상향식(Button-up) 풀이법이 Top-down 풀이법보다 성능이 더 좋다.  
+또한 Top-down 풀이법을 재귀함수로 구현할 경우 N이 매우 크거나, 시스템 환경에 따라 메모리 오류(maximum recursion exceed)가 발생할 수 있다.
