@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "private pip(pypi) 서버 구축 및 테스트"
-date:   2019-09-01 00:59:09 +0000
+date:   2019-09-01 00:59:09 +0900
 categories: python pip
 ---
 

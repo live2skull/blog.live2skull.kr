@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "파이썬 패키지 생성 및 배포 가이드"
-date:   2019-09-01 00:59:09 +0000
+date:   2019-09-01 00:59:09 +0900
 categories: python package pip distuil
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "파이썬 django 프로젝트를 aws lambda 로 서비스하기"
-date:   2019-09-01 00:59:09 +0000
+date:   2019-09-01 00:59:09 +0900
 categories: django aws serverless awslambda zappa python
 ---
 

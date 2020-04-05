@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "C# Thread"
-date:   2020-01-22 22:34:09 +0000
+date:   2020-01-22 22:34:09 +0900
 categories: csharp thread
 ---
 
