@@ -10,7 +10,7 @@ categories: python pip algorithm
 
 N값이 N-X에 의해 결정되므로(칠하는 전체 비용) 다이나믹 프로그래밍으로 구현한다.
 
-하지만, 다음 코드는 `RecursionError`로 인해 사용할 수 없다.
+하지만, 재귀로 코드를 구현하였더니 `RecursionError`가 발생하였는데, 문제의 제약 조건에서 지나치게 재귀가 많이 발생하는 조건이 있다.
 ```
 def main():
 
