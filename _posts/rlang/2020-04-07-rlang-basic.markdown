@@ -45,7 +45,7 @@ print(data) # KIM \n 3
 ```
 grade <- c(3, 1, 2)
 names <- c('KANG', 'SON', 'YANG')
-names(grade) # MAP_DICT(VALUES)
+names(grade) # MAP_DICT(VALUES)                                                                                    
 
 print(score) # KANG SON YANG \n 90 80 75
 print(score['YANG']) # 2
@@ -57,6 +57,8 @@ print(score['YANG']) # 2
 **벡터의 연장**  
 `v <- v1 + v2`연산은 `벡터의 사칙연산`정의로 인해 두 벡터의 연결이 아닌 각 인덱스 요소 합 벡터를 반환한다. 두 벡터의 연장은 다음과 같다.
 `v <- c(v1, v2) | v <- c(v1, v2[idx_start:idx_end])`
+
+**논리값 벡터 다루기 (벡터값의 논리적 선택)**
 
 ----
 
