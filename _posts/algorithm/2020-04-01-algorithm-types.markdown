@@ -6,16 +6,18 @@ categories: python pip algorithm
 ---
 
 ## 유형별 알고리즘 문제풀이
-[백준 Online Judge](https://www.acmicpc.net/)
-
-[백준 - 단계별 태그](https://www.acmicpc.net/step)
-
+[백준 Online Judge](https://www.acmicpc.net/)  
+[백준 - 단계별 태그](https://www.acmicpc.net/step)  
 [백준 - 분류별 태그](https://www.acmicpc.net/problem/tags)
-
 
 [TheLordOfBOJ - 백준 문제풀이 코드 모음](https://github.com/live2skull/TheLordOfBOJ)
 
 ----
+
+## 문제풀이를 시작하기 전에...
+\#1. 한 문제를 1시간 이상 풀이하지 않는다. 문제 풀이 시간을 초과한다면 우선 재쳐두고 다른 문제의 유형을 접해 본다.   
+\#2. 사소한 실수 (마무리 단계 - 출력, 등수 조정, 정렬 등)으로 인해 전체 풀이를 잘못한 것으로 오인할 수 있다. 이러한 실수를 하지 않도록 주의한다.  
+\#3. 돌파구가 보이지 않는 문제가 밥을 먹거나 샤워하는 도중 아이디어가 생각나는 경우도 있다. 본인이 풀지 못하는 문제를 너무 어렵게 생각하지 않는다.
 
 ## 유형별 정리
 
