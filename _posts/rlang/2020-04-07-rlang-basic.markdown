@@ -5,11 +5,12 @@ date:   2020-04-07 16:00:00 +0900
 categories: rlang
 ---
 
-R언어의 기본 문법 및 built-in 함수에 대해 정리함.
+R언어의 기본 문법 및 built-in 함수를 다루어
 
 #### 연산자
 
 **값 대입** `a <- 30`  
+**값 비교(equal)** `a = 30`
 **나머지 연산** `b <- 8 %% 5 # 3`  
 **빠른 문자열 확인** `cat` `b <- cat('1',123,'b',456) # '1 123 b 456'`  
 **사용자 입력값 받기** `n <- readline(prompt='값을 입력하세요')`
@@ -34,6 +35,10 @@ R언어의 기본 문법 및 built-in 함수에 대해 정리함.
 
 **2차원 데이터 벡터(key:value)**  
 데이터 벡터의 구성 값에 이름을 부여함으로써 key:value 관계를 가진 사전형으로 사용할 수 있다.  
+
+\- matrix : 모든 데이터의 데이터 타입이 동일
+\- data.frame : 서로 다른 유형의 데이터 타입을 가짐 (예: 컬럼별 타입이 다름 - 키는 관계없다.)
+
 #1. 벡터를 생성하고, key와 value를 하나씩 연결.
 ```
 data <- c() # NULL(empty)
@@ -59,7 +64,11 @@ print(score['YANG']) # 2
 `v <- c(v1, v2) | v <- c(v1, v2[idx_start:idx_end])`
 
 **논리값 벡터 다루기 (벡터값의 논리적 선택)**
-
+```
+d <- 1:10
+d>5 # FALSE FALSE FALSE FALSE FALSE TRUE TRUE TRUE TRUE TRUE
+d[d>5] # 5 6 7 8 9 10
+```
 ----
 
 
