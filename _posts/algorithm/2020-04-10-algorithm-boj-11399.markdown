@@ -6,4 +6,49 @@ categories: python pip algorithm
 ---
 
 [문제](https://www.acmicpc.net/problem/11399) |
-**[✏️정답 확인](https://github.com/live2skull/TheLordOfAlgorithm/blob/master/problems_boj/%EB%B8%8C%EB%A3%A8%ED%8A%B8_%ED%8F%AC%EC%8A%A4/11399.py)**
+**[✏️정답 확인](https://github.com/live2skull/TheLordOfAlgorithm/blob/master/problems_boj/%EA%B7%B8%EB%A6%AC%EB%94%94_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/11399.py)**
+
+ATM앞에 선 사람들의 대기시간의 최소합 구하기.  
+
+사람 수 N=5, 걸리는 시간 P = [3, 1, 2, 4, 5] 일 때, P와 동일하게 줄을 섰다면,   
+첫번째 사람 P1 = 3, 두번째 사람 P2 = 3 + 1, ...으로 소요시간이 발생한다. 따라서 전체 인원들의 소요시간을 최소로 하려면 가장 시간이 적게 걸리는 사람부터 줄을 서면 되므로, 주어지는 배열을 **오름차순** 으로 정렬 후 각 사람의 소요시간 합 계산을 적절히 구현한다.
+
+----
+
+추가) N의 갯수와 문제 접근법을 고려하지 못하고 순열을 이용해 문제를 풀려고 시도하였음. **O(N^2)** 의 시간복잡도를 가진다.
+
+💡 순열 / 조합 - n개 수열이 주어졌을 때  
+(순열 - 순서변경 있음) nPr = n! / (n-r)\!   
+(조합 - 순서변경 없음) nCr = nCn-r = n! / r!(n-r)\!
+
+📝 주어진 배열의 순열 추출
+```
+## TODO: 제네레이터 버전 함수 작성
+def select_permutation(arr: list, r: int, use_sort:bool=False) -> list:
+    n = len(arr)
+    assert n >= r
+    # nPr = n! / (n-r)!
+    # expected_count = math.factorial(n) // math.factorial(n - r)
+
+    if use_sort: arr = sorted(arr)
+
+    used = [False for _ in range(n)] # 전체 n을 제귀하면서 중복된 값을 추출한다.
+    chosen = list() # 이곳에다가 데이터를 순차적으로 담는다.
+    results = list()
+
+    def generate():
+        if len(chosen) == r:
+            results.append(list(chosen)) # new instance
+            return
+
+        for i in range(n): # 전체 객체에 대하여 반복적으로 스캔함 (재귀)
+            if not used[i]: # 아직 선택되지 않음
+                chosen.append(arr[i])
+                used[i] = True # arr 데이터가 중복 가능하므로 각 자리에 대한 사용 여부를 파악
+                generate()
+                chosen.pop() # 이곳으로 돌아왔다면 append한 데이터가 마지막 데이터임
+                used[i] = False
+
+    generate()
+    return results
+```
