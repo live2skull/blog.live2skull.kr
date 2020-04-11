@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "백준 알고리즘 풀이 - 1541번(잃어버린 괄호)"
-date:   2020-04-1- 22:00:00 +0900
+date:   2020-04-11 22:00:00 +0900
 categories: python pip algorithm
 ---
 
