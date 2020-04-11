@@ -75,7 +75,9 @@ d # d 출력
    1    3    5    7
 ```
 
-#### dataframe
+----
+
+### dataframe
 
 2차원 배열인 점에서는 matrix와 동일하나, 저장된 데이터 타입이 여러개인 점에서 다르다. 단, 저장된 데이터들은 컬렴별로는 동일한 데이터 타입을 가져야 한다.  
 해당 특성을 제외하고는 matrix와 동일하게 다룰 수 있다.
@@ -108,7 +110,7 @@ information['food'] # dataframe 1xn - vector에서는 다르게 동작함
 information$food # vector
 ```
 
-접근하고자 하는 행 / 열의 상세 설정
+접근하고자 하는 행 / 열의 상세 정의
 ```
 iris[,c(1:3)] # 1번째부터 3번째까지의 열 데이터
 iris[,c(1,3,5)] # 1, 3, 5번째의 열 데이터
@@ -117,3 +119,57 @@ iris[c(5,6,7), c(1,2)] 5, 6, 7번째의 행 데이터 에서 1, 2번째의 열 �
 ```
 
 컴마로 구성되는 범위 선택이 아닌 인덱스 선택의 경우 여러개를 선택하려면 `c(idx1, idx2, ...)`를 이용하여 선택한다. 이 때, 범위 선택과 인덱스 선택을 동시에 사용 할 수 있다.
+
+----
+
+### matrix, dataframe 다루기
+
+💡 `head`, `tail` 은 데이터셋의 일부분을 잘라서 새로운 `list`를 생성한다.
+
+#### 테이블 정보 확인
+
+|함수|반환 형식|설명|
+|---|----|-----|
+|`dim(df)`|vector|행과 열의 수|
+|`nrow(df)`|integer|행의 수|
+|`ncol(df)`|integer|열의 수|
+|`names(df)`|vector|컬럼이름 보이기 (==colnames) ret: vector  
+|`head(df)`|list|데이터셋의 앞부분 일부
+|`tail(df)`|list|데이터셋의 뒷부분 일부 ret: list (data.frame == list?)
+|`str(df)`|NULL|데이터셋 요약 보기 - 요약정보는 콘솔에 출력하고, 반환하지 아니함|
+|`unique(df[,'col1'])`|integer **?**|중복된 값을 제외한 데이터 리스트
+|`table(df[, 'col1'])`|integer **?**|중복된 값을 제외한 데이터 리스트와 갯수
+
+⚠️ `colSums(iris)` **?** : 'x'는 반드시 수치형이여야 합니다.
+
+#### 산술연산
+
+|함수|반환 형식|설명|
+|---|----|-----|
+|`colSums(df[,-5])`|double **?**|열별 합계
+|`colMeans(df[,-5])`|double **?**|열별 평균
+|`rowSums(df[,-5])`|double **?**|행별 합계
+|`rowMeans(df[,-5])`|double **?**|행별 평균
+
+
+#### 조건에 맞는 행 추출
+`subset(df, [expression])` 조건에 맞는 행(row) 추출
+
+소스 matrix, dataframe의 rownames, colnames는 보존된다.
+
+```
+RES.1 <- subset(iris, Petal.Width > 2 & Sepal.Width < 5)
+RES.1
+
+Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
+101          6.3         3.3          6.0         2.5 virginica
+103          7.1         3.0          5.9         2.1 virginica
+105          6.5         3.0          5.8         2.2 virginica
+106          7.6         3.0          6.6         2.1 virginica
+110          7.2         3.6          6.1         2.5 virginica
+113          6.8         3.0          5.5         2.1 virginica
+115          5.8         2.8          5.1         2.4 virginica
+116          6.4         3.2          5.3         2.3 virginica
+118          7.7         3.8          6.7         2.2 virginica
+...
+```
