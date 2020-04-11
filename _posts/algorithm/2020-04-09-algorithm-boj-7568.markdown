@@ -2,7 +2,7 @@
 layout: post
 title:  "백준 알고리즘 풀이 - 7568번(덩치)"
 date:   2020-04-09 23:20:00 +0900
-categories: python pip algorithm
+categories: python algorithm brute-force
 ---
 
 [문제](https://www.acmicpc.net/problem/7568) |
