@@ -88,10 +88,9 @@ html_element = lxml.html.document_fromstring(
 
 다음 예제를 통해 태그 이름과 경로, 속성값을 이용해 원하는 엘레멘트를 검색하는 기본적인 방법을 확인할 수 있습니다.
 
-
-\#1. 문서의 전체에서 div태그 중 id가 'articleHead'인 태그의 자식 (자손이 아닌) span태그인 첫번째 엘레멘트를 찾습니다.
+\#1. 문서의 전체에서 div태그 중 id가 'articleHead'인 태그의 자식 (자손이 아닌) span태그인 엘리멘트 중 두번째를 선택합니다.
 ```
-//div[@id='articleHead']/span
+//div[@id='articleHead']/span[2]
 ```
 
 \#2. 문서의 전체에서 div태그 중 id가 'articleBodyContents' 이고 class가 '\_article_body_contents'인 엘레멘트를 찾습니다.
