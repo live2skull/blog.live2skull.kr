@@ -1,0 +1,93 @@
+---
+layout: post
+title:  "백준 알고리즘 풀이 - 10827번(a^b)"
+date:   2020-04-17 13:00:00 +0900
+categories: python algorithm
+---
+
+[문제](https://www.acmicpc.net/problem/10827) |
+**[✏️정답 확인](https://github.com/live2skull/TheLordOfAlgorithm/blob/master/problems_boj/%EA%B8%B0%ED%83%80/10827.py)**
+
+최대 소숫점 9자리까지의 양수인 실수 R과 1이상 100이하의 정수 N이 주어진다. R을 N번 제곱하여, 정확한 계산 결과를 출력한다.
+
+소숫점 연산이 필요한 문제인데, 정확도 문제로 인해 파이선으로 문제를 푼다면 기본 실수형 `float` 자료형을 쓰면 정확한 계산을 할 수 없다. 조금만 연산해도 정확도로 인해 결과가 달라지기 때문이다.
+```
+>>> type(1.1)
+<class 'float'> # 파이썬에서 소수의 기본 자료형은 float이다.
+>>> 1.1 * 1.1
+1.2100000000000002
+```
+
+이 문제는 두 가지 방법으로 풀이할 수 있다.
+
+**#1. Decimal 자료형으로 계산**   
+**#2. 소숫점을 int형식으로 계산하고 결과에 소숫점을 붙이기**
+
+#### 1. Decimal 자료형으로 계산
+
+정확한 실수 연산에는 `decimal` 모듈의 `Decimal` 자료형을 이용한다.
+여기서 주의할 점은, `str`에서 `Decimal`로 변환해야 한다. `float`에서 `Decimal`로 변환하면 `float` 자료형의 부정확성으로 인해 원하지 않는 값이 저장되고, 소숫점 자리내림을 해야 한다.
+```
+>>> Decimal(1.1)
+Decimal('1.100000000000000088817841970012523233890533447265625')
+```
+
+다음은 `Decimal`자료형으로 계산한 예제이다.  
+`getcontext().prec` 값을 조정함으로써 소숫점 연산의 정밀도를 설정할 수 있다.
+
+```
+>>> from decimal import Decimal, getcontext
+>>> Decimal('1.1') * Decimal('1.1')
+Decimal('1.21')
+>>> getcontext()
+Context(prec=28, rounding=ROUND_HALF_EVEN, Emin=-999999, Emax=999999, capitals=1, clamp=0, flags=[], traps=[InvalidOperation, DivisionByZero, Overflow])
+```
+
+이를 이용하여 문제를 풀면 다음과 같다.
+```
+from decimal import Decimal, getcontext
+
+def main():
+    r, n = input().split(' ')
+    # 최대 99.999999999 => 11자리 * 99 = 1100 자릿수
+    getcontext().prec = 1101 # 충분한 정확도롤 설정
+    print(
+        #.to_eng_string() 사용 시 오류. 원인 파악하지 못함.
+        #(Decimal(r) ** int(n)).to_eng_string(getcontext())
+        "{0:f}".format(Decimal(r) ** int(n))
+    )
+
+if __name__ == '__main__':
+    main()
+```
+
+----
+
+#### 2. 소숫점을 int형식으로 계산하고 결과에 소숫점을 붙이기
+
+소숫점 정확도 문제를 신경쓰고 싶지 않다면 자릿수 계산과 숫자 계산을 따로 하면 된다. 실수를 정수로 변환해 정수끼리 계산하고, 마지막에 자릿수만을 계산하여 소숫점을 붙여 준다.
+
+```
+def main():
+    flt, pw = input().split()
+    pos = len(flt[flt.index('.') + 1:]) # 실수의 정수부
+
+
+    flt = flt.replace('.', '')
+    result = str(int(flt) ** int(pw))
+    pos = str((10 ** pos) ** int(pw)) # 정부수끼리의 자릿수 계산
+
+
+    # 정수 계산결과와 자릿수로 '.' 소숫점이 들어갈 부분을 체크한다.
+    # 만약 입력숫자가 0.nn.. 정수부가 없다면 음수, 그렇지 않다면 양수이다.
+    index = len(result) - len(pos) + 1
+
+    if index >= 0:
+        print(result[:index] + '.' + result[index:])
+    else:
+        print('0.' + '0' * (-index) + result)
+
+
+if __name__ == '__main__':
+    main()
+```
