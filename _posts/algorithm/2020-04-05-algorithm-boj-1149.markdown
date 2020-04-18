@@ -8,6 +8,8 @@ categories: python algorithm dynamicprogramming
 [문제](https://www.acmicpc.net/problem/1149) |
 **[✏️정답 확인](https://github.com/live2skull/TheLordOfBOJ/blob/master/problems/%EB%8B%A4%EC%9D%B4%EB%82%98%EB%AF%B9_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/1149.py)**
 
+다이나믹 프로그래밍으로 풀이하되, N번째의 선택이 N-1에 의해 제약을 받으므로, 이전 단계에 선택한 'R, G, B' 에 따라 각각 가능한 경우의 수를 달리 하여 저장한다.  
+계산이 완료되면 마지막으로 가능한 선택지 중 가장 작은 경우의 수를 선택한다.
 
 ```
 def main():
