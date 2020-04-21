@@ -1,0 +1,80 @@
+---
+layout: post
+title:  "백준 알고리즘 풀이 - 9663번(N-Queen)"
+date:   2020-04-21 21:00:00 +0900
+categories: python algorithm
+---
+
+[문제](https://www.acmicpc.net/problem/9663) |
+**[✏️정답 확인](https://github.com/live2skull/TheLordOfAlgorithm/blob/master/problems_boj/%EB%B0%B1%ED%8A%B8%EB%9E%98%ED%82%B9/9663.py)**
+
+백트래킹 유형으로 잘 알려진 문제로, NxN크기의 체스판에 N개의 퀸을 놓아서 서로 공격하지 못하도록 하는 경우의 수를 구한다.
+
+1행부터 시작해서 N행까지 퀸을 놓는 전체 경우의 수를 체크하는데, 특이한 것은 NxN 맵이므로 체스말을 놓은 데이터를 2차원으로 두지 않고, 1차원으로 두었다.  
+여왕말이 서로 공격하지 못하는 경우를 체크하기 위해 같은 행에 체스말을 둘 필요가 없으므로 N크기의 1차원 배열을 만들고, 각 원소로 N행에 체스말의 위치를 저장한 후, DFS와 비슷하게 전체 말을 둘 수 있는 경우 중 세로, 대각선으로 말이 없는 경우의 수를 선발한다.
+
+하지만 파이썬으로 구현하였더니 시간 초과로 문제를 풀 수 없었다.
+```
+mx = list()
+count = 0
+sz = 0
+
+def is_available(n) -> bool:
+    pos = mx[n] # type: int
+    if pos in mx[:n]:
+        return False
+
+    idx = 1
+    for i in range(n-1, -1, -1):
+        # 아랫방향으로 내려가면서 체크한다.
+        # 왼쪽 방향 or 위쪽 방향
+        comp = mx[i]
+        v1 = pos - idx
+        v2 = pos + idx
+        if (v1 < 0) and (v2 > sz - 1):
+            return True
+        if (comp == v1) or (comp == v2):
+            return False
+        idx += 1
+
+    return True
+
+def queen(n):
+    global count
+    if n == sz - 1:
+        count += 1
+        return
+
+    # 말을 순서대로 배치하고 다음으로 이동
+    for i in range(sz):
+        mx[n + 1] = i
+        if is_available(n + 1):
+            queen(n + 1) # 다음 row에서 계속
+
+def main():
+    global sz
+    global count
+
+    sz = int_input()
+    
+    for i in range(sz): mx.append(None)
+
+    # sz - 1 :: max idx 이므로 이 때 최종 여부 판단
+    for i in range(sz):
+        mx[0] = i
+        queen(0)
+
+    print(count)
+
+
+if __name__ == '__main__':
+    main()
+```
+`python3` 및 `pypy3`에서도 동일한 결과를 받았으며, 이 코드에서 더 이상 최적화는 하지 못하였다. 파이썬은 시간 복잡도 문제로 백트래킹, DFS같이 재귀로 구현한 문제풀이에 적합하지 않다고 하니, `C++`로 풀어 볼 예정이다. (그럼에도 `python3`으로 문제를 풀이한 경우도 있다.)
+
+주어지는 N의 범위가 1 이상 15이하이므로, 사전에 답을 미리 계산하여 통과할 수 있다.
+```
+# 파이썬으로 답을 구했지만 시간 초과로 풀이 제한
+cheat = [0, 1, 0, 0, 2, 10, 4, 40, 92, 352, 724, 2680, 14200, 73712, 365596]
+print(cheat[int(input())])
+```

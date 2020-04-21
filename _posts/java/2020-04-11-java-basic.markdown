@@ -43,7 +43,8 @@ categories: java
 💡 10 미만의 자바 플랫폼은 `1.x` 로 표기하기도 한다.  
 💡 클래스 버전은 자바 파일을 컴파일하는 과정에서 지정할 수 있으며, 클래스 버전보다 더 낮은 자바 플랫폼은 해당 클래스 파일을 실행할 수 없다. `unsupported class file major version` 이 발생하며, 이와 관련한 내용은 추후 다룬다.
 
-[Java API to find out the JDK Version a class file is compiled for?](https://stackoverflow.com/questions/1293308/java-api-to-find-out-the-jdk-version-a-class-file-is-compiled-for)
+[Java versioning and terminology](https://stackoverflow.com/questions/2411288/java-versioning-and-terminology-1-6-vs-6-0-openjdk-vs-sun)  
+[Java API to find out the JDK Version a class file is compiled for?](https://stackoverflow.com/questions/1293308/java-api-to-find-out-the-jdk-version-a-class-file-is-compiled-for)  
 
 설치된 자바의 버전은 다음 방법으로 확인한다.
 
