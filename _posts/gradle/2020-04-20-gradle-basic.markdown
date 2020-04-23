@@ -38,4 +38,5 @@ export GRADLE_HOME="GRADLE이 설치된 경로"
 `gradle` 명령어를 실행하여 `BUILD SUCCESSFUL` 이 출력되면 정상적으로 설치된 것이다.
 
 
-## 
+## 프로젝트 살펴보기
+
