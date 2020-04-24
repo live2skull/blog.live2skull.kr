@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Spring Boot 기본 - 1"
-date:   2020-04-22 23:00:00 +0900
+date:   2020-04-24 13:00:00 +0900
 categories: java spring-boot
 ---
 

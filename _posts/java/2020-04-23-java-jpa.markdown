@@ -2,7 +2,7 @@
 layout: post
 title:  "자바 - JPA(Java Persistance API)"
 date:   2020-04-23 16:00:00 +0900
-categories: java
+categories: java jpa
 ---
 
 자바의 JPA(Java Persistance API)에 대해서 알아봅니다.
