@@ -29,9 +29,18 @@ $bodoni: "Bodoni MT", serif !default;
 $calisto: "Calisto MT", serif !default;
 $garamond: Garamond, serif !default;
 
+@import url(/assets/css/nanumgothic.css);
+
+$global-font-family: "Nanum Gothic" !default;
+$header-font-family: "Nanum Gothic" !default;
+$caption-font-family: "Nanum Gothic" !default;  
+
+/* edit font family */
+/*
 $global-font-family: $sans-serif !default;
 $header-font-family: $sans-serif !default;
 $caption-font-family: $serif !default;
+*/
 
 /* type scale */
 $type-size-1: 2.441em !default; // ~39.056px
