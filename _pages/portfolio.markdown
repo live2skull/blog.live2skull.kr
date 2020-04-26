@@ -1,7 +1,7 @@
 ---
 title: "포트폴리오"
 layout: single
-permalink: /portfolio
+permalink: /portfolio/
 author_profile: true
 ---
 
