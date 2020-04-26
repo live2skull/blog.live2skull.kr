@@ -1,8 +1,18 @@
 ---
-layout: post
 title:  "Javadoc 작성하기"
 date:   2020-04-24 15:00:00 +0900
-categories: java
+
+toc: true
+toc_label: "둘러보기"
+toc_icon: "columns"
+
+categories:
+    - javadoc
+    - java
+
+tags:
+    - javadoc
+    - java
 ---
 
 자바로 작성한 코드의 문서 작성을 해 봅니다.

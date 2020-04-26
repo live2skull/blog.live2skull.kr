@@ -1,8 +1,14 @@
 ---
-layout: post
 title:  "C# Invoke"
 date:   2020-01-22 22:34:09 +0900
+
+toc: true
+toc_label: "둘러보기"
+toc_icon: "columns"
+
+
 categories: csharp invoke
+tags: csharp invoke
 ---
 
 # Invoke

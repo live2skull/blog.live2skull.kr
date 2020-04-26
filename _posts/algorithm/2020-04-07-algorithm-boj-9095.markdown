@@ -1,8 +1,12 @@
 ---
-layout: post
 title:  "백준 알고리즘 풀이 - 9095번(1, 2, 3 더하기)"
 date:   2020-04-07 12:00:00 +0900
-categories: python algorithm dynamicprogramming
+
+categories: 
+    - algorithm
+tags:
+    - algorithm
+    - dynamicprogramming
 ---
 
 [문제](https://www.acmicpc.net/problem/9095) |

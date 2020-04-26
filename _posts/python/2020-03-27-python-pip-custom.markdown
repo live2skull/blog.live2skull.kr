@@ -1,8 +1,13 @@
 ---
-layout: post
 title:  "private pip(pypi) 서버 구축 및 테스트"
 date:   2019-09-01 00:59:09 +0900
+
+toc: true
+toc_label: "둘러보기"
+toc_icon: "columns"
+
 categories: python pip
+tags: python pip
 ---
 
 Pypi(Python package index)는 파이썬을 위한 공식적인 패키지(third-party) 소프트웨어 배포 서버이며, 다양한 패키지를 설치하기 위해 사용하는 `pip`는 pypi 공식 서버 [pypi index](https://pypi.org/simple/) 에서 패키지를 검색 및 다운로드한다.

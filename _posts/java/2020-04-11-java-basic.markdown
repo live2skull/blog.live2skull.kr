@@ -1,8 +1,16 @@
 ---
-layout: post
 title:  "자바 살펴보기 - 1 : 버전, 배포판, JDK"
 date:   2020-04-11 20:00:00 +0900
-categories: java
+
+toc: true
+toc_label: "둘러보기"
+toc_icon: "columns"
+
+categories:
+    - java
+
+tags:
+    - java
 ---
 
 자바를 잘 모르는 사람이 자바에 대해서 알아보았습니다. 1편.

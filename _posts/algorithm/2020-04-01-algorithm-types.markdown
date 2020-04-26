@@ -1,8 +1,15 @@
 ---
-layout: post
 title:  "유형별 알고리즘 문제풀이"
 date:   2020-04-01 00:00:00 +0900
-categories: python pip algorithm
+
+toc: true
+toc_label: "둘러보기"
+toc_icon: "columns"
+
+categories:
+  - algorithm
+tags:
+  - algorithm
 ---
 
 ## 유형별 알고리즘 문제풀이

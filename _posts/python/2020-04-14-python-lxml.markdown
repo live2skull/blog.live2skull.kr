@@ -1,7 +1,12 @@
 ---
-layout: post
 title:  "파이썬에서 XPath를 이용한 HTML문서 파싱"
 date:   2020-04-14 21:00:00 +0900
+
+toc: true
+toc_label: "둘러보기"
+toc_icon: "columns"
+
+categories: python lxml
 categories: python lxml html
 ---
 

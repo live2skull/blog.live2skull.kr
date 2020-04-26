@@ -1,8 +1,22 @@
 ---
-layout: post
 title:  "파이썬 django 프로젝트를 aws lambda 로 서비스하기"
 date:   2019-09-01 00:59:09 +0900
-categories: django aws serverless awslambda zappa python
+
+toc: true
+toc_label: "둘러보기"
+toc_icon: "columns"
+
+categories:
+    - django
+    - aws
+
+tags:
+    - django
+    - serverless
+    - aws
+    - aws-lambda
+    - zappa
+    - python
 ---
 
 python 기반의 웹 프레임워크인 `django`, `drf (djangorestframework)` 를  

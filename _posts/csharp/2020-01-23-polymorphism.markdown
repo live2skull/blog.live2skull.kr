@@ -1,8 +1,13 @@
 ---
-layout: post
 title:  "C# Polymorphism"
 date:   2020-01-22 22:34:09 +0900
-categories: csharp abstract interface
+
+toc: true
+toc_label: "둘러보기"
+toc_icon: "columns"
+
+categories: csharp
+tags: csharp abstract interface
 ---
 
 # 다형성

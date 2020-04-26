@@ -1,8 +1,13 @@
 ---
-layout: post
 title:  "자바 - Lombok"
 date:   2020-04-24 09:00:00 +0900
+
+toc: true
+toc_label: "둘러보기"
+toc_icon: "columns"
+
 categories: java lombok
+tags: java lombok
 ---
 
 Lombok 프레임워크로 소스코드 경량화하기.

@@ -1,8 +1,19 @@
 ---
-layout: post
 title:  "django drf 앱 패키징 가이드 - 01"
 date:   2020-03-23 00:59:09 +0900
-categories: django drf python package guide
+
+toc: true
+toc_label: "둘러보기"
+toc_icon: "columns"
+
+categories:
+    - django
+    - djangorestframework
+
+tags:
+    - django
+    - djangorestframework
+    - python
 ---
 
 django, djangorestframework을 사용한 앱 패키지의 작성 규칙 및 요령해 대해 기술합니다.

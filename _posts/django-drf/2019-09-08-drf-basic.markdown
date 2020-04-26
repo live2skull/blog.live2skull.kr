@@ -1,8 +1,19 @@
 ---
-layout: post
-title:  "DRF 작성 규칙 - 1"
+title:  "djangorestframework 작성 규칙 - 1"
 date:   2019-09-01 00:59:09 +0900
-categories: django djangorestframework
+
+toc: true
+toc_label: "둘러보기"
+toc_icon: "columns"
+
+categories: 
+    - django
+    - djangorestframework
+
+tags:
+    - django
+    - djangorestframework
+    - python
 ---
 
 django, djangorestframework 프레임워크를 적용한 파이썬 웹 API 작성에 적용되는 규칙을 정의한다.

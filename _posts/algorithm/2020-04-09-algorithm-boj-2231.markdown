@@ -1,8 +1,12 @@
 ---
-layout: post
 title:  "백준 알고리즘 풀이 - 2231번(분해합)"
 date:   2020-04-09 23:10:00 +0900
-categories: python algorithm brute-force
+
+categories: 
+    - algorithm
+tags:
+    - algorithm
+    - brute-force
 ---
 
 [문제](https://www.acmicpc.net/problem/2231) |

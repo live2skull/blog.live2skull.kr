@@ -1,8 +1,14 @@
 ---
-layout: post
 title:  "C# Naming convention"
 date:   2020-01-22 22:34:09 +0900
-categories: csharp naming-convention
+
+toc: true
+toc_label: "둘러보기"
+toc_icon: "columns"
+
+
+categories: csharp
+tags: csharp naming-convention
 ---
 
 ### MSDN 공식 문서의 권고안을 이용하되, 일부 예외사항은 별도로 정해서 사용한다.

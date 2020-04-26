@@ -1,8 +1,13 @@
 ---
-layout: post
 title:  "Spring Boot 개발환경 구성하기"
 date:   2020-04-19 00:00:00 +0900
+
+toc: true
+toc_label: "둘러보기"
+toc_icon: "columns"
+
 categories: java spring-boot
+tags: java spring-boot
 ---
 
 Jetbrains Intelij 에서 Spring Boot 개발환경을 구성하고 테스트해 봅니다.

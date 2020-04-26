@@ -1,8 +1,14 @@
 ---
-layout: post
 title:  "C# Delegate"
 date:   2020-01-22 22:34:09 +0900
-categories: csharp delegate
+
+toc: true
+toc_label: "둘러보기"
+toc_icon: "columns"
+
+
+categories: csharp
+tags: csharp delegate
 ---
 
 # 대리자

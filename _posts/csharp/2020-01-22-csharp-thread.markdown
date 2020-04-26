@@ -1,8 +1,13 @@
 ---
-layout: post
 title:  "C# Thread"
 date:   2020-01-22 22:34:09 +0900
-categories: csharp thread
+
+categories: csharp
+tags: csharp thread
+
+toc: true
+toc_label: "둘러보기"
+toc_icon: "columns"
 ---
 
 # 스레드

@@ -1,8 +1,13 @@
 ---
-layout: post
 title:  "순열과 조합 파이썬 구현"
 date:   2020-04-11 12:00:00 +0900
-categories: math python algorithm
+
+toc: true
+toc_label: "둘러보기"
+toc_icon: "columns"
+
+categories: algorithm
+tags: math algorithm python
 ---
 
 순열과 조합에 대해 알아보고, 이를 구하는 알고리즘을 작성해 보자.

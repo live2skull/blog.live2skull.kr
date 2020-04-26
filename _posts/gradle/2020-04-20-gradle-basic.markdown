@@ -1,8 +1,16 @@
 ---
-layout: post
 title:  "gradle 사용하기 - 1"
 date:   2020-04-19 00:00:00 +0900
-categories: java gradle
+
+toc: true
+toc_label: "둘러보기"
+toc_icon: "columns"
+
+categories:
+    - gradle
+
+tags:
+    - gradle
 ---
 
 Gradle에 대해서 알아봅니다.

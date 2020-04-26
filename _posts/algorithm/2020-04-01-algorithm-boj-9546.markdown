@@ -1,8 +1,12 @@
 ---
-layout: post
 title:  "백준 알고리즘 풀이 - 9546번(3000번 버스)"
 date:   2020-04-02 00:59:09 +0900
-categories: python algorithm
+
+categories: 
+    - algorithm
+tags:
+    - algorithm
+    - dynamicprogramming
 ---
 
 [문제](https://www.acmicpc.net/problem/9546) |
