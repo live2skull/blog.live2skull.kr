@@ -20,7 +20,7 @@ title                    : "커피와 코딩사이"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "live2skull"
-description              : "개발자 지망생의 블로그"
+description              : "커피와 코딩사이 블로그"
 url                      : "https://blog.live2skull.kr"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
