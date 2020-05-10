@@ -7,7 +7,7 @@ toc_label: "둘러보기"
 toc_icon: "columns"
 
 categories: python lxml
-categories: python lxml html
+tags: python lxml html
 ---
 
 파이썬에서 `lxml` 패키지로 `XPath`를 이용해 HTML문서를 파싱하는 법을 다루어 봅니다.
