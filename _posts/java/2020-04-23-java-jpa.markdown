@@ -114,3 +114,12 @@ public class Song
 @Column(columnDefinition = "TEXT", nullable = false)
 private String lyric;
 ```
+
+### 이벤트 메서드 
+
+#### @PrePersist - onCreate
+객체가 DBMS에 생성되기 전 실행됩니다.
+
+#### @PreUpdate - onUpdate
+객체가 DBMS에 업데이트 되기 전 실행됩니다.
+
