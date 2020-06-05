@@ -1,6 +1,6 @@
 ---
-title:  "django ORM 예제"
-date:   2020-05-28 10:00:00 +0900
+title:  "djangorestframework - pandas 로 csv, xlsx 생성하기"
+date:   2020-05-17 15:00:00 +0900
 
 toc: true
 toc_label: "둘러보기"
@@ -8,13 +8,16 @@ toc_icon: "columns"
 
 categories: 
     - django
+    - djangorestframework
 
 tags:
     - django
+    - djangorestframework
     - python
+    - pandas
 ---
 
-django ORM 예제를 모아두었습니다.
+django, djangorestframework에서 ORM으로 데이터베이스에 저장된 데이터를 `csv`, `xlsx` 파일 등으로 저장하는 방법에 대해 알아봅니다.
 
 ##  사용할 패키지 선택하기
 
