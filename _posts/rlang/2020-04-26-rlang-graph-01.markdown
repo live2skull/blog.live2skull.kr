@@ -1,0 +1,283 @@
+---
+layout: post
+title:  "R언어 그래프 - 01"
+date:   2020-04-26 22:00:00 +0900
+categories: rlang
+---
+
+[참고-1](https://allaboutmoon.tistory.com/entry/R%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EA%B7%B8%EB%9E%98%ED%94%84-%EC%9E%91%EC%84%B1%ED%95%98%EA%B8%B0)
+
+
+... 각 그래프에 대한 소개, 예시 코드 작성 + github template 구성
+
+모든 예제는 `R v4.0.0`을 기준으로 작성되었습니다.
+
+## Troubleshooting
+
+그래프 작업 중 많이 발생할 수 있는 오류와 해결책에 대해 설명합니다. 
+
+**RTools 없음**  
+원할한 패키지 설치를 위해 [cran RTools 페이지](https://cran.r-project.org/bin/windows/Rtools/ ) 에서 RTools를 설치합니다.  + 추가 예정 : 환경변수 등록하고 설치 완료 여부 확인.
+
+**latticeExtra 패키지 없음**    
+다음 명령으로 해당 패키지와 의존성 패키지를 모두 설치합니다.
+```
+# 의존성 패키지 설치
+install.packages("https://cran.r-project.org/src/contrib/Archive/RColorBrewer/RColorBrewer_1.0-5.tar.gz")
+
+install.packages("latticeExtra", repos="http://R-Forge.R-project.org")
+```
+
+---
+
+
+## 질적/범주형 자료(quantative/categorical data) - 반드시 이런건 아니고, 그래프가 받는 입력값에 따라 비교?
+
+blub> 일변량 양적 자료를 받습니다. 벡터에 rownames또는 names가 설정되 있다면 x축 인덱스로 잡게 됩니다.
+
+💡 `col` 옵션 - 컬럼의 약자이거나, 컬러의 약자로도 사용됩니다.
+
+💡 입력하는 데이터의 옵션, 사용 예제를 같이 작성하기.
+
+[범주형 자료 분석](https://m.blog.naver.com/PostView.nhn?blogId=kimkukko&logNo=120025599729&proxyReferer=https%3A%2F%2Fwww.google.com%2F)
+
+### box plot : `boxplot()`
+
+
+### bar plot : `barplot()`
+
+일변량 양적 자료를 받습니다. 벡터에 `rownames` 또는  `names`가 지정되어 있다면 x축 `label`로 잡게 됩니다.
+
+```
+carb <- mtcars$carb
+carb.table <- table(carb) # 범주형 자료의 종류별로 갯수를 판별합니다.
+
+barplot(carb.table,
+  main="Barplot of Carburetors",
+  xlab="of carburetors",
+  ylab="frequency"
+)
+```
+
+### square title : image()`
+
+그래프를 사각형 100개의 영역으로 나누고, 데이터의 비율에 맞게 색을 입힘으로써 전체 비율에 대한 데이터의 양을 알 수 있다.
+
+```
+carb <- mtcars[,"carb"]
+tbl <- table(carb)
+prop <- round((tbl/sum(tbl)) * 100, digits=0) # 비율계산. 소숫점을 버리고 퍼센트로 변환
+m <- length(prop)
+
+p.vec <- rep(1:m, tbl)
+P <- matrix(p.vec, 10, 10)
+image(P, col=color, axes=F, main="proportions")
+
+abline(h=seq(-0.05, 1.05, 0.11),
+       v=seq(-0.05, 1.05, 0.11),
+       col='white', lwd=6)
+```
+
+비율로써 데이터를 그리므로,  `image()`에 데이터를 바로 넣지 않고, 100 비율에 맞춰 계산 후 반환한다.
+
+`rep(vec_idx, vec)` : idx 범위 내에서 벡터 데이터를 해당 값만큼 복제한 벡터를 반환한다.  
+`matrix(vec, x, y)` : x, y의 크기로 **vector**를 자른 **matrix**를 반환한다.  
+`seq(from, to, by)` :  **from**에서 **to** 까지 **by**씩 스태핑한 벡터를 반환한다.
+`abline(h, v, col, lwd)` : **h**, **v** 의 plot에 줄을 그린다.
+
+
+### pie chart : `pie()`
+
+그래프를 전체 데이터에 따라 각도 범위로 나누고, 데이터의 비율에 맞게 색을 입힘으로써 전체 비유렝 대한 데이터의 양을 알 수 있다.
+
+```
+carb <- mtcars[,"carb"]
+tbl <- table(carb)
+
+m <- length(tbl)
+pie(tbl, col=2:(m+1), main = "carbrators", labels=paste(names(prop), " EA:", tbl))
+```
+
+`pie()` 는 라벨을 지정하지 않을 경우, `names` 데이터를 자동으로 라벨에 사용하지 않기 때문에 직접 인자로 전달해야 한다.
+
+`round(vec, digits)` : 소숫점 **round** 자리에서 반올림. 벡터 등을 넣으면 모든 데이터에 대해 연산한다.
+
+
+|속성|설명|
+|-----|--------|
+데이터(`vector`)|벡터 데이터(양적 자료)
+|col|그래프에 사용할 색상의 벡터. 컬러코드를 지정하거나, 사용할 갯수의 레벨입니다.
+|labels|각 데이터의 라벨
+
+### mosaic plot : `mosaicplot()`
+
+2원, 3원 교차표의 시각화로써, 전체 정사각 도형을 교차표의 행 빈도에 비례하는 직사각 도형으로 나누고, 다시 각 도형을 행 내 열의 빈도에 해당하는 직사각 도형으로 나눈다.
+
+
+
+### tree map: `treemap()`
+
+### histogram - 2D / 일변량 자료 : `hist()`
+
+일변량 자료를 히스토그램에 그립니다.  
+히스토그램은 `barplot` 과 비슷한 그래프이지만, x축의 너비가 각 막대 그래프가 나타내는 범위를 가리킵니다.
+
+```
+library(lattice)
+library(MASS)
+
+par(mfrow=c(1,2)) # 화면을 두 영역으로 분할해 그래프를 각각 표시함
+hist(geyser$waiting, nclass=20)
+hist(geyser$duration, nclass=20)
+```
+
+❓ 데이터 타입에 따라 `$` 컬럼 추출이 가능하면 `[, COLNAME]` 으로도 가능함. `list` 타입에서 사용가능. - geyser (MASS)  
+
+|속성|설명|
+|-----|--------|
+데이터(`vector`)|벡터 데이터(양적 자료)
+|nclass|데이터를 쪼개는 갯수. (nclass=20) 이면 막대가 20개 생성된다.
+
+### ? - 3D / 다변량 자료: `cloud()`
+
+이변량 히스토그램을 3차원에 그립니다. 
+
+[cloud function : documentation](https://www.rdocumentation.org/packages/lattice/versions/0.20-41/topics/B_07_cloud)
+
+
+
+```
+library(MASS) # geyser 데이터
+library(lattice) # cloud
+library(latticeExtra) # panel.3d.*
+
+x.waiting <- cut(geyser$waiting,10) # 최솟값과 최대값을 10개로 쪼겜 (값을 쪼개서 분포를 만듬)
+levels(x.waiting) <- paste('w', 1:10) # 10개 구간에 이름을 w1,...,w10와 같이 붙인다.
+y.duration <- cut(geyser$duration, 8) # 최솟값과 최대값을 8개로 쪼갬
+levels(y.duration) <- paste('d', 1:8) # 10개 구간에 이름을 d1,...,d10와 같이 붙인다.
+
+# 빈도수 잡기
+geyser.freq <- table(x.waiting, y.duration) # 교차테이블을 만든다.
+
+cloud(geyser.freq,
+      panel.3d.cloud = panel.3dbars, #  그래프 속성 변경 - bar형태로 그래프를 채움
+      main="geyser",
+      xlab="waiting", ylab="duration",zlab="freq",
+      zlim = c(0, max(geyser.freq)*1.5), # 최대 빈도(밀도)값의 1.5배이므로 그래프가 천장에 붙지않음
+      scales = list(arrows = FALSE, just = "right"), # 좌측에 화살표 표시안함. 
+      col.facet = level.colors(geyser.freq, # 24개의 구간으로 나누어 그린다.
+                               at = do.breaks(range(geyser.freq), 24),
+                               col.regions = terrain.colors, colors = TRUE),
+      screen = list(z = 30, x = -30)) # 그래프를 관찰할 각도 (카메라의 위치)
+```
+
+|속성|설명|
+|-----|--------|
+|빈도데이터(`matrix`)|그려질 빈도 매트릭스 값
+|Y축데이터(`vector`)|Y축값을 결정할 벡터 데이터
+|xlim(`vector`)|표시할 X축값의 범위
+|ylim(`vector`)|표시할 Y축값의 범위
+|zlim(`vector`)|표시할 Z축값의 범위. 예제는 범위를 데이터보다 늘림으로써,<br>Z축의 끝이 천장에 닿지 않게 하였음.
+|scales|Z축에 화살표 표시 여부
+|col.facet||막대의 색 지정
+|screen|그래프를 비추고 있는 카메라의 위치
+
+
+----
+
+## 밀도(산점도) 
+
+### scatter plot - bivariate : `plot()`
+
+이변량 자료(bivariate data)의 분포, 상관관계를 확인합니다. 산점도라도고 합니다.
+
+```
+wt <- mtcars$wt # 차량의 무게
+mpg <- mtcars$mpg # 차량의 연비
+
+# plot(xdata, ydata, [options...])
+plot(wt, mpg, main="Car weight-mpg", xlab="Car Weight", ylab="Miles Per Gallon",
+     col="red", pch=15, xlim=c(0.5, 100), ylim=c(0.9, 30)
+)
+```
+
+[plot function : documentation](https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/plot)
+
+|속성|설명|
+|-----|--------|
+|X축데이터(`vector`)|X축값을 결정할 벡터 데이터
+|Y축데이터(`vector`)|Y축값을 결정할 벡터 데이터
+|xlim(`vector`)|표시할 X축값의 범위
+|ylim(`vector`)|표시할 Y축값의 범위
+|type|그리기 옵션(선 연결, 단일 점 등)
+|col|그래프 객체의 색
+|pch|포인트의 종류
+|lty|라인 옵션(밑줄 등)
+
+
+### scatter plot - multivariate : `pairs()`
+
+다변량 자료(multivariate data)의 상관관계를 확인합니다. 주어진 자료를 각각 X축. Y축 변경하여 비교한 모든 `plot()` 그래프를 그립니다.
+
+```
+vars <- c("mpg", "disp", "drat", "wt") # 연비, 배기량, 리어 맥슬 기어 비, 중량
+target <- mtcars[, vars] # 매트릭스에서 그래프에 그릴 컬럼만 추출
+
+# pairs(datas, [options...])
+pairs(target, main="About cars")
+```
+
+[pairs function : documentation](https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/pairs)
+
+|속성|설명|
+|-----|--------|
+|데이터(`matrix`)|그래프를 그릴 데이터
+
+기타 옵션은 `plot()` 와 동일한 점이 많으며, documentation을 참조한다.
+
+
+### contour plot - 2D : `contour()` / `bkde2D()`
+
+`scatter` 그래프(이변량 자료의 산점도)에 등고선 그래프를 겹쳐 그립니다. 밀도로 구분된 등고선이 `scatter` 그래프 위에 그려집니다.
+
+```
+library(MASS) # geyser 데이터 라이브러리 로드
+library(KernSmooth) # 등고선 라이브러리 로드
+
+plot(geyser,
+    xlim=c(30, 120),
+    ylim=c(0, 6.5),
+    col="blue",
+    pch=20,
+    main="geyser"
+)
+
+density <- bkde2D(geyser, bandwidth=c(5, 0.5)) # 밀도 값 계산
+par(new=T) # 명령 실행 후 그리는 그래프를 뒤에 그리는 그래프와 겹체게 합니다.
+contour(density$x1, density$x2, density$fhat,
+  xlim=c(30, 120), ylim=c(0, 6.5),
+  col=heat.colors(7)[7:1], # 7번째 ~ 1번째 역배열
+  nlevels=7, lwd=2
+)
+```
+
+[bkde2D function :  documentation](https://www.rdocumentation.org/packages/KernSmooth/versions/2.23-17/topics/bkde2D)  
+[contour function :  documentation](https://www.rdocumentation.org/packages/KernSmooth/versions/2.23-17/topics/bkde2D)
+
+`bkde2D()` 옵션
+
+|속성|설명|
+|-----|--------|
+bandwidth(`vector`)|각 X축, Y축의 등고선 모양 조절. 하나의 단위로 묶을 절댓값
+
+`contour()` 옵션
+
+|속성|설명|
+|-----|--------|
+|X축데이터(`vector`)|X축값을 결정할 벡터 데이터
+|Y축데이터(`vector`)|Y축값을 결정할 벡터 데이터
+Z축데이터(`matrix`)|...
+col(`datavector`)|등고선 색
+nlevels|등고선 최대 갯수
+lwd|라인 두께
+
