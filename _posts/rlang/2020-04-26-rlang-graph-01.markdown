@@ -5,10 +5,6 @@ date:   2020-04-26 22:00:00 +0900
 categories: rlang
 ---
 
-[참고-1](https://allaboutmoon.tistory.com/entry/R%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EA%B7%B8%EB%9E%98%ED%94%84-%EC%9E%91%EC%84%B1%ED%95%98%EA%B8%B0)
-
-
-... 각 그래프에 대한 소개, 예시 코드 작성 + github template 구성
 
 모든 예제는 `R v4.0.0`을 기준으로 작성되었습니다.
 
@@ -281,3 +277,6 @@ col(`datavector`)|등고선 색
 nlevels|등고선 최대 갯수
 lwd|라인 두께
 
+
+
+[참고-1](https://allaboutmoon.tistory.com/entry/R%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EA%B7%B8%EB%9E%98%ED%94%84-%EC%9E%91%EC%84%B1%ED%95%98%EA%B8%B0)
